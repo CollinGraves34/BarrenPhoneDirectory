@@ -1,0 +1,125 @@
+<html>
+  <head></head>
+  <body>
+    <script>
+
+    function makeApiCall() {
+      var params = {
+        // The ID of the spreadsheet to retrieve data from.
+        spreadsheetId: '1u50WWarWLmaTlJGfoFvk6DC7-8oFqHXkyO0u5CpJU7w',  // Spreadsheet ID.
+
+        range: 'A2:E8',  // Range of Data.
+      };
+
+      var request = gapi.client.sheets.spreadsheets.values.get(params);
+      request.then(function(response) {
+
+        // response.result = JSON Data
+        var dataLength = response.result.values.length; //get data length of rows
+        console.log('Length: ' + dataLength); 
+
+        //add for i loop
+        var fullData = response.result.values;
+
+        fullData.forEach( set => { //find row and assign row# as 'set'
+
+          var table = document.getElementById('tableBody');
+          var newRow = table.insertRow();
+
+          set.forEach(element => { // forEach of 'set' row
+
+            console.log(element);
+
+            // Insert a cell at the end of the row
+            var newCell = newRow.insertCell();
+
+            // Append a text node to the cell
+            var newText = document.createTextNode(element);
+            newCell.appendChild(newText);
+
+            //table.insertRow(table.rows.length - 1);
+
+          })
+        });
+
+        var obj = response.result.values[0]; // Row Array [0]-controls row#
+        console.log(obj); //log data
+        obj.forEach(element => { // forEach element in Row Array
+          console.log(element);
+        });
+
+      }, function(reason) {
+        console.error('error: ' + reason.result.error.message); //error handle
+      });
+    }
+
+    function initClient() {
+      var API_KEY = 'AIzaSyD32mwtuUMIi1qOg_kXQGS671vhcXCbaao';  // API key.
+
+      var CLIENT_ID = '547780337263-lprm6rd0p9v5lb3e9g2s38kc10t22a47.apps.googleusercontent.com';  // client ID.
+
+      // scope:
+      //   'https://www.googleapis.com/auth/spreadsheets.readonly'
+      var SCOPE = 'https://www.googleapis.com/auth/spreadsheets.readonly';
+
+      gapi.client.init({
+        'apiKey': API_KEY,
+        'clientId': CLIENT_ID,
+        'scope': SCOPE,
+        'discoveryDocs': ['https://sheets.googleapis.com/$discovery/rest?version=v4'],
+      }).then(function() {
+        gapi.auth2.getAuthInstance().isSignedIn.listen(updateSignInStatus);
+        updateSignInStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+      });
+    }
+
+    function handleClientLoad() {
+      gapi.load('client:auth2', initClient);
+    }
+
+    function updateSignInStatus(isSignedIn) {
+      if (isSignedIn) {
+        makeApiCall();
+      }
+    }
+
+    function handleSignInClick(event) {
+      gapi.auth2.getAuthInstance().signIn();
+    }
+
+    function handleSignOutClick(event) {
+      gapi.auth2.getAuthInstance().signOut();
+    }
+
+    </script>
+
+    <script async defer src="https://apis.google.com/js/api.js"
+      onload="this.onload=function(){};handleClientLoad()"
+      onreadystatechange="if (this.readyState === 'complete') this.onload()">
+    </script>
+
+    <button id="signin-button" onclick="handleSignInClick()">Sign in</button>
+    <button id="signout-button" onclick="handleSignOutClick()">Sign out</button>
+
+    <table id="myTable">
+      <thead>
+        <tr>
+          <th>Last</th>
+          <th>First</th>
+          <th>Room #</th>
+          <th>Building</th>
+          <th>Extension</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+        <tr>
+          <td>Jack</td>
+          <td>steak</td>
+          <td>115</td>
+          <td>BCHS</td>
+          <td>06660999</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

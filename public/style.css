@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
+
+
+
+
+
+
+
+
+
+
+
+/*---Media Queries --*/
+@media (max-width: 992px) {
+
+  }
+@media (max-width: 768px) {
+  
+}
+@media (max-width: 576px) {
+  
+}
+
+
+/*---Firefox Bug Fix --*/
+.carousel-item {
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+}
+/*--- Fixed Background Image --*/
+figure {
+  position: relative;
+  width: 100%;
+  height: 60%;
+  margin: 0!important;
+}
+.fixed-wrap {
+  clip: rect(0, auto, auto, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+#fixed {
+  background-image: url('img/mac.png');
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: transform;
+}
+html {
+  font-family: Arial, Verdana, Sans-Serif;
+  background: url('http://www.barren.k12.ky.us/Customers/KY/BarrenCntySD/sysimages/custom/Background-Pattern.png') repeat top center;
+}
+#SearchBTN {
+  background: url('http://www.barren.k12.ky.us/Customers/KY/BarrenCntySD/sysimages/custom/Red-Drop-Down-Logo-Box.png') no-repeat left center;
+  color: white;
+}
+#SearchBTN:hover {
+  background-color: rgb(160,31,65);
+  color: rgb(199, 188, 188);
+}
+#Top {
+  background: url('http://www.barren.k12.ky.us/Customers/KY/BarrenCntySD/sysimages/custom/Red-Drop-Down-Logo-Box.png') no-repeat left center;
+  background-size: 100%;
+  width: 100%;
+  height: 30px;
+  border: 1px solid;
+  font-family: 'Times', serif;
+}
+#credits {
+  color: white;
+  margin-left: 70%;
+}
+#MiddleTop {
+  background-color: white;
+  width: 100%;
+  height: 50px;
+  font-family: 'Times', serif;
+}
+#BottomTop {
+  background: url('http://www.barren.k12.ky.us/Customers/KY/BarrenCntySD/sysimages/custom/Top-Grey-Bar.png') no-repeat top center;
+  background-size: 100%;
+  width: 100%;
+  height: 15px;
+}
+#TitleTop {
+  margin-left: 150px;
+  color: rgb(63, 63, 63);
+
+}
+#TopLogo {
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 177px;
+  height: 83px;
+  margin: auto;
+  margin-left: 50px;
+  margin-top: 10px;
+  top: 5px;
+  z-index: 99;
+}
+/*--- Bootstrap Padding Fix --*/
+[class*="col-"] {
+    padding: 1rem;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+#myTable {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  
+}
+#myTable tr:nth-child(even){
+  background-color: #f2f2f2;
+}
+#myTableBody tr:hover {
+  background-color: #ddd;
+}
+#myTable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background: url(http://www.barren.k12.ky.us/Customers/KY/BarrenCntySD/sysimages/custom/Nav-Bar.png);
+  color: white;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+/* Made by Collin Graves, Elijah Anderson, and Joshua Klein
+
+*/
+.btn-info {
+  background-color: #ffc20f;
+  color: #7c0207;
+  outline: none;
+  border: 1px solid #7c0207;
+  margin-right: 10px;
+}
+
+.btn-danger {
+  margin-right: 10px;
+  color: #ffc20f;
+  background-color: #7c0207;
+  outline: none;
+  border: 1px solid #ffc20f;
+}
+
+.btn-info:hover {
+  transition:1s ease-out 0, 1s;
+  background-color: #ffc20f;
+  color: #7c0207;
+  border: 2px solid #7c0207;
+  transition: .2s ease-out 0s;
+}
+
+.btn-danger:hover {
+  transition:1s ease-out 0, 1s;
+  margin-right: 10px;
+  color: #ffffff;
+  background-color: #6c0207;
+  border: 2px solid #ffc20f;
+  transition: .2s ease-out 0s;
+}
+
+#myInput {
+  width: 300px;
+}
+
+
+.notLoaded {
+  padding: 10px;
+  bottom: 0px;
+  margin: auto;
+  text-align: center;
+  width: 100%;
+  height: 150px;
+  border-top: 1px solid black;
+}
+
+
+.hidden {
+  display: none!important;
+}

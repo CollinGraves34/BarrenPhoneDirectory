@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>BCHS | Barren County Phone Directory</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+	<link href="../style.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<script src="https://cdn.blockspring.com/blockspring.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-database.js"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="../img/Home.ico" />
+</head>
+<body>
+
+<div id="Top">
+  
+</div>
+<div id="MiddleTop">
+  <h1 id="TitleTop"></a><a href="http://www.barren.k12.ky.us/"><img src="../img/logo.png" alt="Logo" id="TopLogo"/></a><a href="http://www.barren.k12.ky.us/" id="TitleTop">Barren County School District</a></h1>
+</div>
+<div id="BottomTop">
+
+</div>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="../index.html">District List </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../test.html"></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Sort by Schools <span class="sr-only">(current)</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="../Schools/bchs.html">Barren County High School <span class="sr-only">(current)</span></a>
+          <a class="dropdown-item" href="../Schools/ta.html">Trojan Academy</a>
+					<a class="dropdown-item" href="../Schools/bcms.html">Barren County Middle School</a>
+					<a class="dropdown-item" href="../Schools/at.html">Austin Tracy</a>
+					<a class="dropdown-item" href="../Schools/Eastern.html">Eastern</a>
+					<a class="dropdown-item" href="../Schools/Hiseville.html">Hiseville</a>
+					<a class="dropdown-item" href="../Schools/nj.html">North Jackson</a>
+					<a class="dropdown-item" href="../Schools/pc.html">Park City</a>
+					<a class="dropdown-item" href="../Schools/rc.html">Red Cross</a>
+					<a class="dropdown-item" href="../Schools/th.html">Temple Hill</a>
+					<a class="dropdown-item" href="../Schools/atc.html">ATC</a>
+					<a class="dropdown-item" href="../Schools/ctc.html">CTC</a>
+                    <a class="dropdown-item" href="../Schools/trojan-way.html">Trojan Way</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Other Staff</a>
+        </div>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" id="myInput" placeholder="Search by First or Last Name..." onkeyup="filter()" aria-label="Search">
+      <br><br>
+      <button id="signin-button" class="btn btn-danger hidden" onclick="handleSignInClick()">Sign in</button>
+      <button id="signout-button" class="btn btn-danger hidden" onclick="handleSignOutClick()">Sign out</button>
+    </form>
+  </div>
+</nav>
+<table id="myTable">
+  <thead>
+    <tr>
+      <th>Last</th>
+      <th>First</th>
+      <th>Room #</th>
+      <th>Building</th>
+      <th>Extension</th>
+    </tr>
+  </thead>
+  <tbody id="tableBody">
+  </tbody>
+</table>
+<div class="notLoaded">
+  <button class="btn btn-danger" id="reloadBTN">Load Table</button>
+  <hr>
+  <p>Click the button above to load the table.</p>
+</div>
+
+<script src="../Schools/bchs.js"></script>
+<script async defer src="https://apis.google.com/js/api.js" onload="handleClientLoad()" onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
+<!--Collin Graves-->
+<!--Barren County District Phone Directory-->
+</html>
