@@ -3,32 +3,31 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>District List | Barren County Phone Directory</title>
+	<title>BOE | Barren County Phone Directory</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-	<link href="style.css" rel="stylesheet">
+	<link href="../style.css" rel="stylesheet">
 	<script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
 	<script src="https://cdn.blockspring.com/blockspring.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-database.js"></script>
-  <link rel="shortcut icon" type="image/x-icon" href="./img/Home.ico" />
+  <link rel="shortcut icon" type="image/x-icon" href="../img/Home.ico" />
 </head>
 <body>
-<div class="header">
+
 <div id="Top">
   
 </div>
 <div id="MiddleTop">
-  <h1 id="TitleTop"><a href="http://www.barren.k12.ky.us/"><img src="./img/logo.png" alt="Logo" id="TopLogo" class="titleLogo"/></a></h1>
+  <h1 id="TitleTop"></a><a href="http://www.barren.k12.ky.us/"><img src="../img/logo.png" alt="Logo" id="TopLogo"/></a></h1>
 </div>
 <!--<div id="BottomTop">
 
 </div>-->
-</div>
 
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -40,40 +39,38 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="./index.html">District List <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="../index.html">District List </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="./test.html"></a>
+        <a class="nav-link" href="../test.html"></a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Sort by Schools
+          Sort by Schools   <span class="sr-only">(current)</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="./Schools/bchs.html">Barren County High School</a>
-          <a class="dropdown-item" href="./Schools/bcta.html">Trojan Academy</a>
-					<a class="dropdown-item" href="./Schools/bcms.html">Barren County Middle School</a>
-					<a class="dropdown-item" href="./Schools/at.html">Austin Tracy</a>
-					<a class="dropdown-item" href="./Schools/eastern.html">Eastern</a>
-					<a class="dropdown-item" href="./Schools/hiseville.html">Hiseville</a>
-					<a class="dropdown-item" href="./Schools/nj.html">North Jackson</a>
-					<a class="dropdown-item" href="./Schools/pc.html">Park City</a>
-					<a class="dropdown-item" href="./Schools/rc.html">Red Cross</a>
-					<a class="dropdown-item" href="./Schools/th.html">Temple Hill</a>
-					<a class="dropdown-item" href="./Schools/atc.html">ATC</a>
-          <a class="dropdown-item" href="./Schools/trojan-way.html">Trojan Way</a>
-          <a class="dropdown-item" href="../Schools/boe.html">Board of Education</a>
-          <a class="dropdown-item" href="../Schools/annex.html">Annex</a>
-          <a class="dropdown-item" href="../Schools/inZone.html">InZone</a>
+          <a class="dropdown-item" href="./bchs.html">Barren County High School</a>
+          <a class="dropdown-item" href="./bcta.html">Trojan Academy</a>
+          <a class="dropdown-item" href="./bcms.html">Barren County Middle School</a>
+          <a class="dropdown-item" href="./at.html">Austin Tracy</a>
+          <a class="dropdown-item" href="./Eastern.html">Eastern</a>
+          <a class="dropdown-item" href="./Hiseville.html">Hiseville</a>
+          <a class="dropdown-item" href="./nj.html">North Jackson</a>
+          <a class="dropdown-item" href="./pc.html">Park City</a>
+          <a class="dropdown-item" href="./rc.html">Red Cross</a>
+          <a class="dropdown-item" href="./th.html">Temple Hill</a>
+          <a class="dropdown-item" href="./atc.html">ATC</a>
+          <a class="dropdown-item" href="./trojan-way.html">Trojan Way</a>
+          <a class="dropdown-item" href="./boe.html">Board of Education <span class="sr-only">(current)</span></a>
+          <a class="dropdown-item" href="./annex.html">Annex <span class="sr-only">(current)</span></a>
+          <a class="dropdown-item" href="./inZone.html">InZone</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Other Staff</a>
         </div>
       </li>
     </ul>
-      <input class="form-control mr-sm-2" type="search" id="myInput" placeholder="Search by First or Last Name..." onkeyup="filter()" aria-label="Search">
-      <!--<br><br>
-      <button id="signin-button" class="btn btn-danger hidden" onclick="handleSignInClick()">Sign in</button>
-      <button id="signout-button" class="btn btn-danger hidden" onclick="handleSignOutClick()">Sign out</button>-->
+    
+    <input class="form-control mr-sm-2" type="search" id="myInput" placeholder="Search by First or Last Name..." onkeyup="filter()" aria-label="Search">
   </div>
 </nav>
 <table id="myTable">
@@ -91,11 +88,10 @@
 </table>
 <div class="notLoaded">
   <button class="btn btn-danger" id="reloadBTN">Launch Directory</button>
-  <hr>
-  <p>If the table didn't load click the button above!</p>
 </div>
-<script async defer src="https://apis.google.com/js/api.js" onload="handleClientLoad();" onreadystatechange="if (this.readyState === 'complete') this.onload();"></script>
-<script src="scripts/main.js"></script>
+
+<script src="../Schools/boe.js"></script>
+<script async defer src="https://apis.google.com/js/api.js" onload="handleClientLoad()" onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
 <!--Collin Graves-->
 <!--Barren County District Phone Directory-->
 </html>

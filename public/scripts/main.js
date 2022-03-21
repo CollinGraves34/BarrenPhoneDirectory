@@ -1,76 +1,3 @@
-//Firebase configuration
-/* firebase method => init
-const firebaseConfig = {
-  apiKey: "AIzaSyCCbmvnPwbCUW6fx5fwRQQcIv89lNBgK3w",
-  authDomain: "phonefinder10000.firebaseapp.com",
-  projectId: "phonefinder10000",
-  storageBucket: "phonefinder10000.appspot.com",
-  messagingSenderId: "808109984322",
-  appId: "1:808109984322:web:3e492283552aa7e63abbdb"
-};
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-
-// Get a reference to the database service
-var database = firebase.database();
-
-*/
-/* firebase method => read database
-var ref = database.ref();
-ref.on("value", function(snapshot) {
-  let contacts = snapshot.val();
-  contacts.forEach(contact => {
-    loadContact(contact);
-    console.log("read finished...Appending Data!")
-  });
-});
-*/
-
-
-//------------//------------//------------//------------//
-
-
-/* object model
-Building: "Annex"
-Extention: 11203
-First: "Shawna "
-Last: "Shartzer"
-Room: 203
-*/
-/*
-function loadContact(contact) {
-  /* Table Structure */
-  /* <table id="myTable">
-    <thead>
-      <tr>
-        <th>Last</th>
-        <th>First</th>
-        <th>Room #</th>
-        <th>Building</th>
-        <th>Extension</th>
-      </tr>
-    </thead>
-    <tbody id="myTableBody" />
-  </table>; */
-/*
-  let table = document.getElementById("myTable");
-
-  let row = table.insertRow(-1);
-
-  let lastCell = row.insertCell(0);
-  let firstCell = row.insertCell(1);
-  let roomCell = row.insertCell(2);
-  let buildingCell = row.insertCell(3);
-  let extensionCell = row.insertCell(4);
-
-  lastCell.innerText = contact.Last;
-  firstCell.innerText = contact.First;
-  buildingCell.innerText = contact.Building;
-  roomCell.innerText = contact.Room;
-  extensionCell.innerText = contact.Extention;
-}
-*/
-
 function filter() {
   var input, filter, table, tr, td, i, txtValue;
   input = document.getElementById("myInput");
@@ -109,7 +36,7 @@ function makeApiCall() {
     // The ID of the spreadsheet to retrieve data from.
     spreadsheetId: '1KmUnPK0dtOy5HzwZdMbhTYVI6A7fHJezLn_LsbZbfOU',  // Spreadsheet ID.
 
-    range: 'MasterList!A2:E215',  // Range of Data. //change to use as filter by school
+    range: 'MasterList!A2:E869',  // Range of Data. //change to use as filter by school
   };
 
   var request = gapi.client.sheets.spreadsheets.values.get(params);
@@ -130,7 +57,7 @@ function makeApiCall() {
 
       set.forEach(element => { // forEach of 'set' row
 
-        console.log(element);
+
 
         // Insert a cell at the end of the row
         var newCell = newRow.insertCell();
@@ -142,14 +69,7 @@ function makeApiCall() {
         //table.insertRow(table.rows.length - 1);
 
       })
-    });
-
-    var obj = response.result.values[0]; // Row Array [0]-controls row#
-    console.log(obj); //log data
-    obj.forEach(element => { // forEach element in Row Array
-      console.log(element);
-    });
-
+    })
   }, function(reason) {
     console.error('error: ' + reason.result.error.message); //error handle
   });
@@ -181,16 +101,7 @@ function handleClientLoad() {
 
 function updateSignInStatus(isSignedIn) {
   isSignedIn = gapi.auth2.getAuthInstance().isSignedIn.get();
-  if (isSignedIn) {
-    console.log('Signed in!')
-    toggleSignInOn();
-    toggleSignOutOff();
-    makeApiCall();
-  }else if (!isSignedIn){
-    console.log('Signed out!')
-    toggleSignOutOn();
-    toggleSignInOff();
-  }
+  hideReloadButton();
 }
 
 function handleSignInClick(event) {
@@ -199,18 +110,6 @@ function handleSignInClick(event) {
 
 function handleSignOutClick(event) {
   gapi.auth2.getAuthInstance().signOut();
-}
-
-function toggleButtonOff(button) {
-  switch(button.classList) //switch to test 'case' against classes of element
-  {
-    case "hidden":
-      button.style.display = 'none';//hide
-      break;
-    default:
-      button.style.display = 'inline-block';//show
-    break;
-  }
 }
 
 function easterEgg(poppy) {
@@ -246,30 +145,17 @@ function toggleButtonOn(button) {
   }
 }
 
-// toggle sign IN btn ON
-function toggleSignInOn() {
-  var button = document.getElementById('signin-button');
-  toggleButtonOn(button);
+function toggleButtonOff(button) {
+  switch(button.classList) //switch to test 'case' against classes of element
+  {
+    case "hidden":
+      button.style.display = 'none';//hide
+      break;
+    default:
+      button.style.display = 'inline-block';//show
+    break;
+  }
 }
-// toggle sign out btn ON
-function toggleSignOutOn() {
-  var button = document.getElementById('signout-button');
-  toggleButtonOn(button);
-}
-// toggle sign in btn OFF
-function toggleSignInOff() {
-  var button = document.getElementById('signin-button');
-  toggleButtonOff(button);
-}
-// toggle sign out btn OFF
-function toggleSignOutOff() {
-  var button = document.getElementById('signout-button');
-  toggleButtonOff(button);
-}
-
-
-
-//hide Reload div
 
 var button = document.getElementById('reloadBTN'); //find reload btn
 button.addEventListener("click", hideReloadButton); //add listener to reload btn
@@ -284,4 +170,3 @@ function hideReloadButton() { // hide reload func
     console.log("Reload Already hidden");
   }
 };
-

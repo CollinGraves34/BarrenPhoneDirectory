@@ -106,7 +106,7 @@ function filter() {
       // The ID of the spreadsheet to retrieve data from.
       spreadsheetId: '1KmUnPK0dtOy5HzwZdMbhTYVI6A7fHJezLn_LsbZbfOU',  // Spreadsheet ID.
   
-      range: 'MasterList!A38:E86',  // Range of Data. //change to use as filter by school
+      range: 'MasterList!A87:E117',  // Range of Data. //change to use as filter by school
     };
   
     var request = gapi.client.sheets.spreadsheets.values.get(params);

@@ -106,7 +106,7 @@ function filter() {
       // The ID of the spreadsheet to retrieve data from.
       spreadsheetId: '1KmUnPK0dtOy5HzwZdMbhTYVI6A7fHJezLn_LsbZbfOU',  // Spreadsheet ID.
   
-      range: 'MasterList!A118:214',  // Range of Data. //change to use as filter by school
+      range: 'MasterList!A118:E214',  // Range of Data. //change to use as filter by school
     };
   
     var request = gapi.client.sheets.spreadsheets.values.get(params);
@@ -178,16 +178,7 @@ function filter() {
   
   function updateSignInStatus(isSignedIn) {
     isSignedIn = gapi.auth2.getAuthInstance().isSignedIn.get();
-    if (isSignedIn) {
-      console.log('Signed in!')
-      toggleSignInOn();
-      toggleSignOutOff();
-      makeApiCall();
-    }else if (!isSignedIn){
-      console.log('Signed out!')
-      toggleSignOutOn();
-      toggleSignInOff();
-    }
+    hideReloadButton();
   }
   
   function handleSignInClick(event) {
